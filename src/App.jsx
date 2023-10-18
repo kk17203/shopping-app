@@ -1,35 +1,63 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+    // This useState uses a function to calculate its initial state, pulling itemCount from local storage or (if no itemCount stored) setting state to 0.
+    const [itemCount] = useState(() => {
+        const storedItemCount = localStorage.getItem("itemCount");
+        return storedItemCount ? parseInt(storedItemCount) : 0;
+    });
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    // This line checks to see if the current page is the home page, and if so, adds a class of "highlighted" to the home link in the nav bar.
+    const isOnPage = location.pathname === "/";
+
+    return (
+        <div className="app-container">
+            <div className="nav-bar">
+                <h1>Shopping Cart Project</h1>
+                <ul>
+                    <li className={isOnPage ? "highlighted" : ""}>
+                        <Link to="/">Home Page</Link>
+                    </li>
+                    <li>
+                        <Link to="/shoppage">Shop Page</Link>
+                    </li>
+                    <li>
+                        <Link to="/cartpage">
+                            <div className="icon">{itemCount}</div>
+                        </Link>
+                    </li>
+                </ul>
+            </div>
+            <div className="app-main">
+                <div className="welcome-card">
+                    <h1>Welcome</h1>
+                    <p>
+                        This site is a project for the{" "}
+                        <a
+                            href="https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            Shopping Cart
+                        </a>{" "}
+                        lesson in The Odin Project&apos;s Full Stack JavaScript
+                        path. To see the code for this project, please visit my{" "}
+                        <a
+                            href="https://github.com/kk17203/shopping-cart"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            GitHub Repository.
+                        </a>
+                    </p>
+                    <button className="shop-btn">
+                        <Link to="/shoppage">Shop All Products</Link>
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
 }
 
-export default App
+export default App;
