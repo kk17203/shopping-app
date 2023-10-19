@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import ShoppingCart from "./assets/shopping-cart-icon.svg";
 
 function ShopPage() {
     const [shopItems, setShopItems] = useState(null);
@@ -104,7 +105,12 @@ function ShopPage() {
                     </li>
                     <li>
                         <Link to="/cartpage">
-                            <div className="icon">{itemCount}</div>
+                            <div className="shopping-cart-container">
+                                <div className="item-count">{itemCount}</div>
+                                <span className="material-symbols-outlined">
+                                    shopping_cart
+                                </span>{" "}
+                            </div>
                         </Link>
                     </li>
                 </ul>
