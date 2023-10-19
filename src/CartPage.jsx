@@ -68,6 +68,10 @@ function CartPage() {
         localStorage.setItem("cartItems", JSON.stringify(updatedProducts));
     };
 
+    const handleCheckOut = () => {
+        alert("We appologize, but this feature is not yet available.");
+    };
+
     return (
         <div className="cart-container">
             <div className="nav-bar">
@@ -76,7 +80,12 @@ function CartPage() {
                     <span>
                         Subtotal: <b>${total}</b>
                     </span>
-                    <button className="checkout-btn">Checkout</button>
+                    <button
+                        className="checkout-btn"
+                        onClick={() => handleCheckOut()}
+                    >
+                        Checkout
+                    </button>
                 </div>
                 <ul>
                     <li>
