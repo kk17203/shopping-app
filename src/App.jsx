@@ -44,7 +44,7 @@ function App() {
                         lesson in The Odin Project&apos;s Full Stack JavaScript
                         path. To see the code for this project, please visit my{" "}
                         <a
-                            href="https://github.com/kk17203/shopping-cart"
+                            href="https://github.com/kk17203/shopping-app"
                             target="_blank"
                             rel="noreferrer"
                         >
