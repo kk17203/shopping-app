@@ -14,7 +14,6 @@ Welcome to the Shopping Cart Project, a project developed as part of The Odin Pr
 
 -   React.js
 -   React Router
--   Material-UI
 -   JavaScript (ES6+)
 -   HTML5
 -   CSS3
