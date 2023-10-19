@@ -24,7 +24,16 @@ function App() {
                     </li>
                     <li>
                         <Link to="/cartpage">
-                            <div className="icon">{itemCount}</div>
+                            <div className="shopping-cart-container">
+                                {itemCount > 0 ? (
+                                    <div className="item-count">
+                                        {itemCount}
+                                    </div>
+                                ) : null}
+                                <span className="material-symbols-outlined">
+                                    shopping_cart
+                                </span>{" "}
+                            </div>
                         </Link>
                     </li>
                 </ul>

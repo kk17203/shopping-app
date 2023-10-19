@@ -87,9 +87,15 @@ function CartPage() {
                     </li>
                     <li className={isOnPage ? "highlighted" : ""}>
                         <Link to="/cartpage">
-                            <div className="icon">
-                                {/* <ShoppingCartIcon /> */}
-                                {itemCount}
+                            <div className="shopping-cart-container">
+                                {itemCount > 0 ? (
+                                    <div className="item-count">
+                                        {itemCount}
+                                    </div>
+                                ) : null}
+                                <span className="material-symbols-outlined">
+                                    shopping_cart
+                                </span>{" "}
                             </div>
                         </Link>
                     </li>

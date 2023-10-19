@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import ShoppingCart from "./assets/shopping-cart-icon.svg";
 
 function ShopPage() {
     const [shopItems, setShopItems] = useState(null);
@@ -106,7 +105,11 @@ function ShopPage() {
                     <li>
                         <Link to="/cartpage">
                             <div className="shopping-cart-container">
-                                <div className="item-count">{itemCount}</div>
+                                {itemCount > 0 ? (
+                                    <div className="item-count">
+                                        {itemCount}
+                                    </div>
+                                ) : null}
                                 <span className="material-symbols-outlined">
                                     shopping_cart
                                 </span>{" "}
@@ -121,7 +124,12 @@ function ShopPage() {
                         <h3 className="item-title">{item.title}</h3>
                         <img src={item.image} alt="" className="item-img" />
                         {/* <p className="item-desc">{item.description}</p> */}
-                        <p className="item-rating">{item.rating.rate}</p>
+                        <p className="item-rating">
+                            <span className="material-symbols-outlined star">
+                                star
+                            </span>
+                            {item.rating.rate}
+                        </p>
                         <p className="item-price">${item.price.toFixed(2)}</p>
                         <div className="btn-set">
                             <button
